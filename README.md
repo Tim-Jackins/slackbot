@@ -7,15 +7,10 @@
 - [Running](#running)
 
 # Background
-This was my attempt to make a simple python3 slack bot that would post our rank in zero robotics. At the time that I made this I didn't know how to use JavaScript and there's now a better 'serverless' way to do this which I would recommend checking out: [link](https://github.com/johnagan/serverless-slackbot)
+This was my attempt to make a simple python3 slack bot that would post our rank in zero robotics. At the time that I made this I didn't know how to use JavaScript and there's now [a better 'serverless' way to do this](https://github.com/johnagan/serverless-slackbot) which I would recommend checking out.
 
 # Setup
 ## Install
-Make sure you have git installed:
-```bash
-sudo apt-get install git
-```
-
 Clone this repo:
 ```bash
 git clone https://github.com/Tim-Jackins/zrbot.git
