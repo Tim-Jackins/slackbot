@@ -1,22 +1,10 @@
 ## Table of Contents
 - [Background](#background)
-- [Install](#install)
-	- [Get the source code](#get-the-source-code)
-	- [Get NPM](#get-npm)
-	- [Configure](#configure)
-	- [Build the extension](#build-the-extension)
-	- [Get an ID and a key](#get-an-id-and-a-key)
-	- [Adding the extension on Windows and macOS](#adding-the-extension-on-windows-and-macos)
-- [Usage](#usage)
-	- [For your team](#for-your-team)
-		- [updating](#updating)
-	- [Make a commit](#make-a-commit)
-	- [Make a new branch](#make-a-new-branch)
-	- [Merging](#merging)
-	- [Comparing your current code to a branch](#comparing-your-current-code-to-a-branch)
-	- [Simulating against another branch](#simulating-against-another-branch)
-- [Contribute](#contribute)
-- [License](#license)
+- [Setup](#setup)
+	- [Install](#install)
+	- [Credentials](#credentials)
+- [Code](#code)
+- [Running](#running)
 
 # Background
 This was my attempt to make a simple python3 slack bot that would post our rank in zero robotics. At the time that I made this I didn't know how to use JavaScript and there's now a better 'serverless' way to do this which I would recommend checking out: [link](https://github.com/johnagan/serverless-slackbot)
@@ -39,7 +27,7 @@ sudo -H pip3 install --trusted-host pypi.python.org -r requirements.txt
 ```
 Ok, you're ready to move to the next step!
 
-## Get some cred'
+## Credentials
 
 In order for the bot you make to communicate with your slack you have to give it some security credentials. These can be obtained in your slack. First go to apps menu by click on apps:
 
@@ -69,7 +57,7 @@ export SLACK_BOT_ID={Your bots}
 
 The benefit of exporting is to be able to share your code with people without giving them all of your tokens. Anyways, once you have your tokens you are ready to start your app!
 
-# The Code
+# Code
 
 What follows is a template for building your app. Feel free to copy it down and leave now but if it looks weird countinue down and I will step through it.
 
