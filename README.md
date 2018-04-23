@@ -1,4 +1,4 @@
-## Table of Contents
+# Table of Contents
 - [Background](#background)
 - [Setup](#setup)
 	- [Install](#install)
