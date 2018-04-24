@@ -1,6 +1,10 @@
 # slackbot-template
 
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+[![GitHub issues](https://img.shields.io/github/issues/Tim-Jackins/slackbot-template.svg)](https://github.com/Tim-Jackins/slackbot-template/issues)
+[![GitHub forks](https://img.shields.io/github/forks/Tim-Jackins/slackbot-template.svg)](https://github.com/Tim-Jackins/slackbot-template/network)
+[![GitHub stars](https://img.shields.io/github/stars/Tim-Jackins/slackbot-template.svg)](https://github.com/Tim-Jackins/slackbot-template/stargazers)
+[![GitHub license](https://img.shields.io/github/license/Tim-Jackins/slackbot-template.svg)](https://github.com/Tim-Jackins/slackbot-template/blob/master/LICENSE)
 
 > This is a template for a python3 based slackbot.
 
@@ -95,7 +99,6 @@ Feel free to contribute in the following ways:
 - Say hi!
 
 Please abide by the [code of conduct](docs/CODE_OF_CONDUCT.md).
-
 
 ## License
 
