@@ -22,7 +22,7 @@ Slack is a super cool tool for large organizations to collaborate efficiently. W
 - [License](#license)
 
 ## Background
-This was my attempt to make a simple python3 slack bot that would post our rank in zero robotics. At the time that I made this I didn't know how to use JavaScript and there's now [a better 'serverless' way to do this](https://github.com/johnagan/serverless-slackbot) which I would recommend checking out.
+This was my attempt to make a simple python3 slack bot that would [post our rank in zero robotics](print_rank.py). At the time that I made this I didn't know how to use JavaScript and there's now [a better 'serverless' way to do this](https://github.com/johnagan/serverless-slackbot) which I would recommend checking out.
 
 ## Install
 ### Packages
@@ -61,7 +61,7 @@ Once you have your token and bot id lets save those as evironment variables:
 ```bash
 export SLACK_API_TOKEN={Your bots API token}
 ```
-Next run the script print_bot_id.py and follow the instructions. This will give you the id for the bot which you will then need to to export:
+Next run the [print_bot_id](print_bot_id.py) script and follow the instructions. This will give you the id for the bot which you will then need to to export:
 ```bash
 export SLACK_BOT_ID={Your bots}
 ```
