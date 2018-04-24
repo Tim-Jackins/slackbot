@@ -1,33 +1,40 @@
-# Table of Contents
+# slackbot-template
+
+[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+
+> This is a template for a python3 based slackbot.
+
+Slack is a super cool tool for large organizations to collaborate efficiently. What's even cooler is having configurable bots in your slack to do automative tasks! The following is an explenation of how to use the included python3 script.
+
+## Table of Contents
 - [Background](#background)
-- [Setup](#setup)
-	- [Install](#install)
+- [Install](#install)
+	- [Packages](#packages)
 	- [Credentials](#credentials)
-- [Code](#code)
-- [Running](#running)
+- [Usage](#usage)
+	- [Configurations](#configurations)
+	- [Questions](#questions)
+- [Contribute](#contribute)
+- [License](#license)
 
-# Background
-This was my attempt to make a simple python3 slack bot that would post our rank in zero robotics. At the time that I made this I didn't know how to use JavaScript and there's now a better 'serverless' way to do this which I would recommend checking out: [link](https://github.com/johnagan/serverless-slackbot)
+## Background
+This was my attempt to make a simple python3 slack bot that would post our rank in zero robotics. At the time that I made this I didn't know how to use JavaScript and there's now [a better 'serverless' way to do this](https://github.com/johnagan/serverless-slackbot) which I would recommend checking out.
 
-# Setup
 ## Install
-Make sure you have git installed:
-```bash
-sudo apt-get install git
-```
+### Packages
 
 Clone this repo:
 ```bash
-git clone https://github.com/Tim-Jackins/zrbot.git
+git clone https://github.com/Tim-Jackins/slackbot_template.git
 ```
 
-Next install the required packages
+Next install the required python3 packages
 ```bash
 sudo -H pip3 install --trusted-host pypi.python.org -r requirements.txt
 ```
 Ok, you're ready to move to the next step!
 
-## Credentials
+### Credentials
 
 In order for the bot you make to communicate with your slack you have to give it some security credentials. These can be obtained in your slack. First go to apps menu by click on apps:
 
@@ -55,153 +62,41 @@ Next run the script print_bot_id.py and follow the instructions. This will give 
 export SLACK_BOT_ID={Your bots}
 ```
 
+In order to have the exports everytime you log on add them to the bottom of ~/.bashrc:
+```bash
+# Exported slack info
+export SLACK_API_TOKEN={Your bots API token}
+export SLACK_BOT_ID={Your bots}
+```
+
 The benefit of exporting is to be able to share your code with people without giving them all of your tokens. Anyways, once you have your tokens you are ready to start your app!
 
-# Code
+## Usage
 
-What follows is a template for building your app. Feel free to copy it down and leave now but if it looks weird countinue down and I will step through it.
-
-```python
-import os
-import time
-import pprint
-import slackclient as sc
-import re
-
-BOT_ID = os.environ['SLACK_BOTID']
-AT_BOT = '<@' + BOT_ID + '>'
-pp = pprint.PrettyPrinter(indent=4)
-slack_client = sc.SlackClient(os.environ['SLACK_API_TOKEN'])
-MENTION_REGEX = '^<@(|[WU].+?)>(.*)'
-
-def handle_command(text, channel, raw_output):
-	if text.startswith('hello'):
-		response = 'Well hello there <@{0}>'.format(raw_output['user']) 
-	elif 'info' in text:
-		response = ''
-		for cell in raw_output:
-			if cell == 'user':
-				response += '{0}: <@{1}>\n'.format(cell, raw_output[cell])
-			else:
-				response += '{0}: {1}\n'.format(cell, raw_output[cell].replace('@', ''))
-	else:
-		response = 'Say "hello" to chat with me! Or ask for some info.'
-	slack_client.api_call(
-		"chat.postMessage",
-		channel=channel,
-		text=response,
-		as_user=True)
-	print('Command handled')
-def parse_slack_output(slack_rtm_output):
-	output_list = slack_rtm_output
-	if output_list and len(output_list) > 0:
-		for output in output_list:
-			pp.pprint(output)
-			try:
-				matches = re.search(MENTION_REGEX, output['text'])
-				if matches:
-					# the first group contains the username (matches.group(1)), the second group contains the remaining message
-					return matches.group(2).strip(), output['channel'], output
-			except:
-				pass
-	return None, None, None
-if __name__ == "__main__":
-	READ_WEBSOCKET_DELAY = 1 # 1 second delay between reading from firehose
-	if slack_client.rtm_connect():
-		print("StarterBot connected and running!")
-		while True:
-			command, channel, raw_output = parse_slack_output(slack_client.rtm_read())
-			if command and channel:
-				print(command)
-				if handle_command(command, channel, raw_output):
-					break
-			time.sleep(READ_WEBSOCKET_DELAY)
-	else:
-		print("Connection failed. Invalid Slack token or bot ID?")
-print("Bot turned off")
-```
-
-## Imports
-```python
-import os			# Used for running terminal commands
-import time			# Has handy functions relating to time
-import pprint			# Includes a function for printing dictionaries nicely
-import slackclient as sc	# The slack api we'll use to talk to the workspace
-import re			# Using regex in python
-```
-
-## Initializing
-It's self explanatory; however, if you don't know what regular expressions are: [Link 1](https://www.regular-expressions.info/) [Link 2](https://regexr.com/)
-```python
-BOT_ID = os.environ['SLACK_BOTID']				# Get your slack token
-AT_BOT = '<@' + BOT_ID + '>'					# How the mention from slack will appear to the bot
-pp = pprint.PrettyPrinter(indent=4)				# Initialize the dictionary printer
-slack_client = sc.SlackClient(os.environ['SLACK_API_TOKEN'])	# Initialize the slack client
-MENTION_REGEX = '^<@(|[WU].+?)>(.*)'				# This is regex for matching slack mentions
-```
-
-## Handling commands
-This command is for deciding what the response should be and then making the api call
-```python
-def handle_command(text, channel, raw_output):
-	if 'hello' in text:
-		response = 'Well hello there <@{0}>'.format(raw_output['user']) 
-	elif 'info' in text:
-		response = ''
-		for cell in raw_output:
-			if cell == 'user':
-				response += '{0}: <@{1}>\n'.format(cell, raw_output[cell])
-			else:
-				response += '{0}: {1}\n'.format(cell, raw_output[cell])
-	else:
-		response = 'Say "hello" to chat with me! Or ask for some info.'
-	slack_client.api_call(
-		"chat.postMessage",
-		channel=channel,
-		text=response,
-		as_user=True)
-	print('Command handled')
-```
-
-## Parsing the output
-This uses the MENTION_REGEX string to figure out if a person was talking to the bot.
-```python
-def parse_slack_output(slack_rtm_output):
-	output_list = slack_rtm_output
-	if output_list and len(output_list) > 0:
-		for output in output_list:
-			pp.pprint(output)
-			try:
-				matches = re.search(MENTION_REGEX, output['text'])
-				if matches:
-					# the first group contains the username (matches.group(1)), the second group contains the remaining message
-					return matches.group(2).strip(), output['channel'], output
-			except:
-				pass
-	return None, None, None
-```
-
-## Main
-Pretty simple. Wait till something is texted then check to see if it mentions the bot.
-```python
-if __name__ == "__main__":
-	READ_WEBSOCKET_DELAY = 1 # 1 second delay between reading from firehose
-	if slack_client.rtm_connect():
-		print("StarterBot connected and running!")
-		while True:
-			command, channel, raw_output = parse_slack_output(slack_client.rtm_read())
-			if command and channel:
-				print(command)
-				if handle_command(command, channel, raw_output):
-					break
-			time.sleep(READ_WEBSOCKET_DELAY)
-	else:
-		print("Connection failed. Invalid Slack token or bot ID?")
-print("Bot turned off")
-```
-
-# Running
-Now you should just be able to run the script.
+You should just be able to run the script.
 ```bash
 python3 run.py
 ```
+
+### Configurations
+
+Notice the dictionaries being printed out, the slack bot picks up a fair amount of cool data that can be used. The best place to add commands is in the `handle_command` function by adding an `elif` to recognize the desired command.
+
+### Questions
+
+Feel free to send me an email if you have any questions about using the code for something interesting.
+
+## Contribute
+
+Feel free to contribute in the following ways:
+
+- [Open an issue!](https://github.com/Tim-Jackins/slackbot-template/issues/new) but please use [the issue template](docs/issue_template.md)
+- Pull Requests are both encouraged and appreciated!
+- Say hi!
+
+Please abide by the [code of conduct](docs/CODE_OF_CONDUCT.md).
+
+
+## License
+
+GPL-3.0 © Jack Timmins
