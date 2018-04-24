@@ -2,7 +2,7 @@
 
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
-[![standard-readme compliant](https://img.shields.io/badge/readme%20PEP8-compliant-ff69b4.svg?style=flat-square)](https://www.python.org/dev/peps/pep-0008/)
+[![pep8 compliant](https://img.shields.io/badge/readme%20PEP8-compliant-ff69b4.svg?style=flat-square)](https://www.python.org/dev/peps/pep-0008/)
 
 [![GitHub issues](https://img.shields.io/github/issues/Tim-Jackins/slackbot-template.svg)](https://github.com/Tim-Jackins/slackbot-template/issues)
 [![GitHub forks](https://img.shields.io/github/forks/Tim-Jackins/slackbot-template.svg)](https://github.com/Tim-Jackins/slackbot-template/network)
