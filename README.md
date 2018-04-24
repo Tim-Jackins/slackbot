@@ -95,11 +95,11 @@ Feel free to send me an email if you have any questions about using the code for
 
 Feel free to contribute in the following ways:
 
-- [Open an issue!](https://github.com/Tim-Jackins/slackbot-template/issues/new) but please use [the issue template](docs/issue_template.md)
+- [Open an issue!](https://github.com/Tim-Jackins/slackbot-template/issues/new) but please use [the issue template](.github/issue_template.md)
 - Pull Requests are both encouraged and appreciated!
 - Say hi!
 
-Please abide by the [code of conduct](docs/CODE_OF_CONDUCT.md).
+Please abide by the [code of conduct](.github/CODE_OF_CONDUCT.md).
 
 ## License
 
