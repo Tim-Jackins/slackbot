@@ -1,6 +1,6 @@
 # slackbot-template
 
-[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat)](https://github.com/RichardLitt/standard-readme)
 [![GitHub issues](https://img.shields.io/github/issues/Tim-Jackins/slackbot-template.svg)](https://github.com/Tim-Jackins/slackbot-template/issues)
 [![GitHub forks](https://img.shields.io/github/forks/Tim-Jackins/slackbot-template.svg)](https://github.com/Tim-Jackins/slackbot-template/network)
 [![GitHub stars](https://img.shields.io/github/stars/Tim-Jackins/slackbot-template.svg)](https://github.com/Tim-Jackins/slackbot-template/stargazers)
