@@ -103,4 +103,4 @@ Please abide by the [code of conduct](.github/CODE_OF_CONDUCT.md).
 
 ## License
 
-GPL-3.0 © Jack Timmins
+[GPL-3.0](LICENSE) © Jack Timmins
