@@ -10,6 +10,6 @@ leaderboard = BeautifulSoup(html_content, 'lxml').body.table # Get the first tab
 cells = [str(elem) for elem in leaderboard.find_all('td')] # Find all occurances of <td> tag
 
 for i in range(len(cells)):
-    if i % 5 == 0:
-        if cells[i][64:-9] == team:
-            print('{0}\'s rank is {1}'.format(team, int(i / 5) + 1))
+	if i % 5 == 0:
+		if cells[i][64:-9] == team:
+			print('{0}\'s rank is {1}'.format(team, int(i / 5) + 1))
