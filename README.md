@@ -1,7 +1,7 @@
 # slackbot-template
 
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat)](https://github.com/RichardLitt/standard-readme)
-[![pep8 compliant](https://img.shields.io/badge/code style-PEP8-ff69b4.svg?style=flat)](https://www.python.org/dev/peps/pep-0008/)
+[![pep8 compliant](https://img.shields.io/badge/codestyle-PEP8-ff69b4.svg?style=flat)](https://www.python.org/dev/peps/pep-0008/)
 [![GitHub issues](https://img.shields.io/github/issues/Tim-Jackins/slackbot-template.svg)](https://github.com/Tim-Jackins/slackbot-template/issues)
 [![GitHub forks](https://img.shields.io/github/forks/Tim-Jackins/slackbot-template.svg)](https://github.com/Tim-Jackins/slackbot-template/network)
 [![GitHub license](https://img.shields.io/github/license/Tim-Jackins/slackbot-template.svg)](https://github.com/Tim-Jackins/slackbot-template/blob/master/LICENSE)
