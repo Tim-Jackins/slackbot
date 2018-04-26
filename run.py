@@ -1,14 +1,16 @@
 import os			# Used for running terminal commands
 import time			# Has handy functions relating to time
 import pprint			# Includes a function for printing dictionaries nicely
-import slackclient as sc	# The slack api we'll use to talk to the workspace
+import slackclient as sc  # The slack api we'll use to talk to the workspace
 import re			# Using regex in python
 
-BOT_ID = os.environ['SLACK_BOTID']				# Get your slack token
+BOT_ID = os.environ['SLACK_BOT_ID']				# Get your slack token
 AT_BOT = '<@' + BOT_ID + '>'					# How the mention from slack will appear to the bot
 pp = pprint.PrettyPrinter(indent=4)				# Initialize the dictionary printer
-slack_client = sc.SlackClient(os.environ['SLACK_API_TOKEN'])	# Initialize the slack client
-MENTION_REGEX = '^<@(|[WU].+?)>(.*)'				# This is regex for matching slack mentions
+# Initialize the slack client
+slack_client = sc.SlackClient(os.environ['SLACK_API_TOKEN'])
+# This is regex for matching slack mentions
+MENTION_REGEX = '^<@(|[WU].+?)>(.*)'
 
 
 def handle_command(text, channel, raw_output):
@@ -39,7 +41,7 @@ def parse_slack_output(slack_rtm_output):
 			try:
 				matches = re.search(MENTION_REGEX, output['text'])
 				if matches:
-					# the first group contains the username (matches.group(1)), 
+					# the first group contains the username (matches.group(1)),
 					# the second group contains the remaining message
 					return matches.group(2).strip(), output['channel'], output
 			except:
