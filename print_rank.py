@@ -15,4 +15,4 @@ def get_rank(team):
 				return '{0}\'s rank is {1}'.format(team, int(i / 5) + 1)
 	return 'Couldn\'t find team.'
 
-print(get_rank('BACON HORIZON ASP')
+print(get_rank('BACON HORIZON ASP'))
